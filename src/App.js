@@ -1,16 +1,15 @@
 import React, { Component } from 'react';
-import Particles from 'react-particles-js';
-import FaceRecognition from './components/FaceRecognition/FaceRecognition';
-import Navigation from './components/Navigation/Navigation';
-import Signin from './components/Signin/Signin';
-import Register from './components/Register/Register';
-import Logo from './components/Logo/Logo';
-import ImageLinkForm from './components/ImageLinkForm/ImageLinkForm';
-import Rank from './components/Rank/Rank';
+import Particles from 'react-tsparticles';
+import FaceRecognition from './Components/FaceRecognition/FaceRecognition.js';
+import Navigation from './Components/Navigation/Navigation.js';
+import Signin from './Components/SignIn/Signin.js';
+import Register from './Components/Register/Register.js';
+import Logo from './Components/Logo/Logo.js';
+import ImageLinkForm from './Components/ImageLinkForm/ImageLinkForm.js';
+import Rank from './Components/Rank/Rank.js';
 import './App.css';
- 
+
 const particlesOptions = {
-  //customize this to your liking
   particles: {
     number: {
       value: 30,
@@ -18,7 +17,16 @@ const particlesOptions = {
         enable: true,
         value_area: 800
       }
-    }
+    },
+    opacity: {
+      value: 0.5,
+    },
+    shape: {
+      type: "circle",
+    },
+    size: {
+      value: { min: 1, max: 5 },
+    },
   }
 }
 
@@ -119,7 +127,7 @@ class App extends Component {
     return (
       <div className="App">
          <Particles className='particles'
-          params={particlesOptions}
+           options={particlesOptions}
         />
         <Navigation isSignedIn={isSignedIn} onRouteChange={this.onRouteChange} />
         { route === 'home'
